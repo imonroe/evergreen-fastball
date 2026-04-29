@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    ports:
+      - "6002:6002"
+    environment:
+      - OBSIDIAN_VAULT=/vault
+      - PORT=6002
+      # Optional overrides:
+      # - DATA_FILE=/data/data.json
+      # - TZ=America/Los_Angeles
+    volumes:
+      - /path/to/your/obsidian/vault:/vault
+      - ./data.json:/app/data.json
+    restart: unless-stopped

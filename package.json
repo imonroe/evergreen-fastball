@@ -1,0 +1,15 @@
+{
+  "name": "evergreen-fastball",
+  "version": "1.0.0",
+  "description": "Local project notes tracker backed by Obsidian",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js",
+    "build:client": "cd client && npm run build"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2"
+  }
+}

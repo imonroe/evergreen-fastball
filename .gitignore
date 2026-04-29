@@ -1,2 +1,8 @@
-.logs
+logs/
 .claude/*.local.*
+.claude/settings.json
+node_modules/
+client/node_modules/
+client/dist/
+data.json
+.env
