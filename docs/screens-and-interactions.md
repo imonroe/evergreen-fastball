@@ -87,6 +87,7 @@ Accessible from the sidebar "Settings" link.
 - Left sidebar (same as other views; "Settings" active)
 - Page heading: "Settings"
 - **Enter-to-add** toggle (on/off) — label: "Press Enter to add a note"
+- **Daily Note links** toggle (on/off) — label: "Link timestamps to Daily Notes"; when on, dates are written as `[[YYYY-MM-DD]]` to link to Obsidian Daily Notes
 - **Timezone** text input — IANA timezone name (e.g. `America/Los_Angeles`); used for all Obsidian timestamps
 - Vault path display (read-only, shows the `OBSIDIAN_VAULT` env var value for reference)
 

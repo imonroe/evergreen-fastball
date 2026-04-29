@@ -27,6 +27,22 @@
 
         <div class="setting-row">
           <div class="setting-info">
+            <span class="setting-label">Link timestamps to Daily Notes</span>
+            <span class="setting-desc">Writes dates as <code>[[2026-04-29]]</code> so they link to your Obsidian Daily Note</span>
+          </div>
+          <button
+            class="toggle"
+            :class="{ on: prefs.dailyNoteLinks }"
+            @click="toggle('dailyNoteLinks')"
+            :aria-checked="prefs.dailyNoteLinks"
+            role="switch"
+          >
+            <span class="toggle-thumb" />
+          </button>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-info">
             <span class="setting-label">Timezone</span>
             <span class="setting-desc">Used for all timestamps written to Obsidian files</span>
           </div>
@@ -61,7 +77,7 @@ import { ref, onMounted } from 'vue';
 import { getPreferences, updatePreferences } from '../api.js';
 import { useToast } from '../composables/useToast.js';
 
-const prefs = ref({ enterToAdd: true, timezone: '' });
+const prefs = ref({ enterToAdd: true, timezone: '', dailyNoteLinks: false });
 const vaultPath = ref('');
 const { show } = useToast();
 
@@ -81,7 +97,11 @@ async function toggle(key) {
 }
 
 async function save() {
-  await updatePreferences({ enterToAdd: prefs.value.enterToAdd, timezone: prefs.value.timezone });
+  await updatePreferences({
+    enterToAdd: prefs.value.enterToAdd,
+    timezone: prefs.value.timezone,
+    dailyNoteLinks: prefs.value.dailyNoteLinks,
+  });
   show('Settings saved');
 }
 </script>
@@ -166,6 +186,15 @@ async function save() {
 }
 
 .tz-input:focus { border-color: #10B981; }
+
+.setting-desc code {
+  font-family: monospace;
+  font-size: 12px;
+  background: #F1F5F9;
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #0F172A;
+}
 
 .vault-value {
   font-size: 13px;

@@ -26,7 +26,7 @@ router.post('/:projectId', (req, res) => {
   if (!project) return res.status(404).json({ error: 'Project not found' });
 
   try {
-    addNote(project.filePath, text.trim(), data.preferences.timezone);
+    addNote(project.filePath, text.trim(), data.preferences.timezone, data.preferences.dailyNoteLinks);
     res.status(201).json({ ok: true });
   } catch (err) {
     res.status(500).json({ error: err.message });

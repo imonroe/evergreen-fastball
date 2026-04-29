@@ -146,7 +146,11 @@ Timestamps use the timezone configured in the user's preferences (see Preference
 
 **File creation:** If the file does not yet contain a `## Notes` heading, the app appends one before writing the first note. If the file does not exist at all, it is created automatically (including any intermediate directories).
 
-**Parsing:** When reading notes for display, only lines within the `## Notes` section that match the `- YYYY-MM-DD HH:MM — <text>` format are parsed. Lines that do not match (manually written content, blank lines, etc.) are silently skipped.
+**Note line format:** Depends on the Daily Note links preference:
+- Links off: `- YYYY-MM-DD HH:MM — <text>`
+- Links on:  `- [[YYYY-MM-DD]] HH:MM — <text>`
+
+**Parsing:** Both formats are accepted when reading. Lines that match neither are silently skipped.
 
 ---
 
@@ -166,6 +170,7 @@ User-configurable settings stored in the app (not requiring a container restart)
 |------------|---------|-------------|
 | Enter-to-add | On | Whether pressing Enter in a note input field submits the note (same as clicking ADD) |
 | Timezone | *(container local)* | IANA timezone name (e.g. `America/Los_Angeles`) used when writing timestamps to Obsidian files. Displayed and editable in the Settings view. |
+| Daily Note links | Off | When on, dates are written as `[[YYYY-MM-DD]]` instead of plain `YYYY-MM-DD`, creating a link to the Obsidian Daily Note for that day. Both formats are accepted when reading notes. |
 
 ---
 
@@ -192,6 +197,8 @@ User-configurable settings stored in the app (not requiring a container restart)
 | F-17 | The user shall be able to set a timezone preference (IANA name) in Settings; all Obsidian timestamps shall use that timezone |
 | F-18 | Lines in a `## Notes` section that do not match the app's timestamp format shall be silently skipped when parsing |
 | F-19 | New notes shall be inserted immediately before the next heading after `## Notes`, or at end-of-file if none exists |
+| F-20 | When "Daily Note links" is on, dates shall be written as `[[YYYY-MM-DD]]`; the app shall parse both linked and plain formats when reading |
+| F-21 | The "Daily Note links" preference shall be toggleable in Settings and shall default to Off |
 
 ---
 

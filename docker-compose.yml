@@ -2,14 +2,16 @@ services:
   app:
     build: .
     ports:
-      - "6002:6002"
+      - "${PORT:-6002}:${PORT:-6002}"
     environment:
+      # Inside the container the vault is always mounted at /vault.
+      # The host path comes from OBSIDIAN_VAULT in .env (used in the volume below).
       - OBSIDIAN_VAULT=/vault
-      - PORT=6002
-      # Optional overrides:
-      # - DATA_FILE=/data/data.json
-      # - TZ=America/Los_Angeles
+      - PORT=${PORT:-6002}
+      # The data file is always at /app/data.json inside the container.
+      # The host path comes from DATA_FILE in .env (used in the volume below).
+      - DATA_FILE=/app/data.json
     volumes:
-      - /path/to/your/obsidian/vault:/vault
-      - ./data.json:/app/data.json
+      - ${OBSIDIAN_VAULT}:/vault
+      - ${DATA_FILE:-./data.json}:/app/data.json
     restart: unless-stopped

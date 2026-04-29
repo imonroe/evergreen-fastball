@@ -1,7 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const NOTE_RE = /^- (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) — (.+)$/;
+// Matches both plain dates and Obsidian daily-note links:
+//   - 2026-04-29 14:32 — text
+//   - [[2026-04-29]] 14:32 — text
+const NOTE_RE = /^- (?:\[\[)?(\d{4}-\d{2}-\d{2})(?:\]\])? (\d{2}:\d{2}) — (.+)$/;
 
 function vaultRoot() {
   const root = process.env.OBSIDIAN_VAULT;
@@ -13,7 +16,7 @@ function absPath(relPath) {
   return path.join(vaultRoot(), relPath);
 }
 
-function formatTimestamp(timezone) {
+function formatParts(timezone) {
   const tz = timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
   const parts = new Intl.DateTimeFormat('en-CA', {
     timeZone: tz,
@@ -27,7 +30,7 @@ function formatTimestamp(timezone) {
   const get = (t) => parts.find((p) => p.type === t)?.value ?? '00';
   // en-CA gives YYYY-MM-DD; hour can be '24' when midnight in some locales — clamp it
   const hour = get('hour') === '24' ? '00' : get('hour');
-  return `${get('year')}-${get('month')}-${get('day')} ${hour}:${get('minute')}`;
+  return { date: `${get('year')}-${get('month')}-${get('day')}`, time: `${hour}:${get('minute')}` };
 }
 
 function readNotes(relPath) {
@@ -47,14 +50,16 @@ function readNotes(relPath) {
   const notes = [];
   for (let i = startIdx + 1; i < endIdx; i++) {
     const m = lines[i].match(NOTE_RE);
-    if (m) notes.push({ timestamp: m[1], text: m[2] });
+    if (m) notes.push({ timestamp: `${m[1]} ${m[2]}`, text: m[3] });
   }
   return notes.reverse();
 }
 
-function addNote(relPath, text, timezone) {
+function addNote(relPath, text, timezone, dailyNoteLinks = false) {
   const p = absPath(relPath);
-  const noteLine = `- ${formatTimestamp(timezone)} — ${text}`;
+  const { date, time } = formatParts(timezone);
+  const dateStr = dailyNoteLinks ? `[[${date}]]` : date;
+  const noteLine = `- ${dateStr} ${time} — ${text}`;
 
   fs.mkdirSync(path.dirname(p), { recursive: true });
 

@@ -18,7 +18,7 @@ const BADGE_COLORS = [
 
 const DEFAULT_DATA = {
   projects: [],
-  preferences: { enterToAdd: true, timezone: '' },
+  preferences: { enterToAdd: true, timezone: '', dailyNoteLinks: false },
 };
 
 function read() {
