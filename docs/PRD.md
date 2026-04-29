@@ -81,7 +81,7 @@ The main dashboard. Lists all tracked projects.
 
 **Behavior:**
 - Pressing ADD (or Enter, see Preferences) with an empty input does nothing
-- After a successful ADD, the input field is cleared and a brief confirmation is shown
+- After a successful ADD, the input field is cleared and a toast notification briefly appears confirming the note was saved
 - Projects are displayed in user-defined order; rows can be dragged to reorder
 
 ---
@@ -108,10 +108,11 @@ Lists all notes from all projects combined, newest first.
 
 **Layout:**
 - Accessible from the sidebar "Journal" link
-- Each entry shows: project name, note text, date and time
+- Each entry shows: project name badge (color auto-assigned from a fixed palette), note text, date and time
 
 **Behavior:**
 - Notes are aggregated across all project files and sorted by timestamp, newest first
+- Project badge colors are assigned automatically from a fixed palette when a project is created; the same color is used consistently across the Journal view
 - Read-only
 
 ---
@@ -133,13 +134,19 @@ Lists all notes from all projects combined, newest first.
 
 Each project's Obsidian markdown file contains a `## Notes` section. The app only reads from and writes to content within that section; any other content in the file (headings, existing text, etc.) is left untouched.
 
-When a note is added, a new line is appended inside the `## Notes` section:
+When a note is added, a new line is written inside the `## Notes` section in this format:
 
 ```
 - YYYY-MM-DD HH:MM — <note text>
 ```
 
-If the file does not yet contain a `## Notes` heading, the app appends one before writing the first note. This keeps the file human-readable in Obsidian and ensures the app only ever touches its own content.
+Timestamps use the timezone configured in the user's preferences (see Preferences). If no timezone is set, the container's local time is used.
+
+**Insertion position:** New notes are inserted immediately before the next heading after `## Notes` (if one exists), or at the end of the file if `## Notes` is the last section. This ensures notes accumulate in reverse-chronological order within the section as viewed in Obsidian.
+
+**File creation:** If the file does not yet contain a `## Notes` heading, the app appends one before writing the first note. If the file does not exist at all, it is created automatically (including any intermediate directories).
+
+**Parsing:** When reading notes for display, only lines within the `## Notes` section that match the `- YYYY-MM-DD HH:MM — <text>` format are parsed. Lines that do not match (manually written content, blank lines, etc.) are silently skipped.
 
 ---
 
@@ -158,6 +165,7 @@ User-configurable settings stored in the app (not requiring a container restart)
 | Preference | Default | Description |
 |------------|---------|-------------|
 | Enter-to-add | On | Whether pressing Enter in a note input field submits the note (same as clicking ADD) |
+| Timezone | *(container local)* | IANA timezone name (e.g. `America/Los_Angeles`) used when writing timestamps to Obsidian files. Displayed and editable in the Settings view. |
 
 ---
 
@@ -179,6 +187,11 @@ User-configurable settings stored in the app (not requiring a container restart)
 | F-12 | If a project's Obsidian file does not exist when a note is added, the app shall create it (including parent directories) |
 | F-13 | Pressing Enter in a note input shall trigger ADD when the "Enter-to-add" preference is enabled |
 | F-14 | The "Enter-to-add" preference shall be toggleable from within the app and shall default to On |
+| F-15 | A successful ADD shall display a toast notification confirming the note was saved |
+| F-16 | Each project shall be auto-assigned a badge color from a fixed palette; the color shall be used consistently in the Journal view |
+| F-17 | The user shall be able to set a timezone preference (IANA name) in Settings; all Obsidian timestamps shall use that timezone |
+| F-18 | Lines in a `## Notes` section that do not match the app's timestamp format shall be silently skipped when parsing |
+| F-19 | New notes shall be inserted immediately before the next heading after `## Notes`, or at end-of-file if none exists |
 
 ---
 

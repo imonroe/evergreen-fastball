@@ -41,7 +41,7 @@ All notes from all projects combined, newest first.
 - Left sidebar (same as Projects View; "Journal" active)
 - Page heading: "Journal"
 - Read-only list of notes, newest first
-  - Each entry: project name badge/tag, timestamp, note text
+  - Each entry: project name badge (auto-assigned color), timestamp, note text
 
 **Empty state:** "No notes yet. Add a note from the Projects page."
 
@@ -87,6 +87,7 @@ Accessible from the sidebar "Settings" link.
 - Left sidebar (same as other views; "Settings" active)
 - Page heading: "Settings"
 - **Enter-to-add** toggle (on/off) — label: "Press Enter to add a note"
+- **Timezone** text input — IANA timezone name (e.g. `America/Los_Angeles`); used for all Obsidian timestamps
 - Vault path display (read-only, shows the `OBSIDIAN_VAULT` env var value for reference)
 
 ---
@@ -96,7 +97,7 @@ Accessible from the sidebar "Settings" link.
 ### Note Capture
 | Trigger | Action |
 |---------|--------|
-| Type in note input + click ADD | Appends note to project's Obsidian file; clears input; shows brief "Added!" confirmation |
+| Type in note input + click ADD | Appends note to project's Obsidian file; clears input; shows toast notification "Note saved" |
 | Type in note input + press Enter (if Enter-to-add is On) | Same as above |
 | Click ADD with empty input | No-op |
 | Press Enter with empty input | No-op |

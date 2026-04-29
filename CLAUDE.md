@@ -26,3 +26,7 @@ The user manages several concurrent projects and gets requests from multiple peo
 - Obsidian vault path must be configurable (mounted volume)
 - Notes are appended to the corresponding Obsidian page file with a timestamp; the app never rewrites existing note content
 - Support an arbitrary number of projects
+
+## Additional information
+
+- Use the Pencil MCP to work with the designs in the `designs/` directory.
