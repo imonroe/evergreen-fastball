@@ -1,0 +1,2227 @@
+{
+  "version": "2.11",
+  "children": [
+    {
+      "type": "frame",
+      "id": "bi8Au",
+      "x": 0,
+      "y": 0,
+      "name": "Frame",
+      "clip": true,
+      "width": 800,
+      "height": 600,
+      "fill": "#FFFFFF",
+      "layout": "none"
+    },
+    {
+      "type": "frame",
+      "id": "p2OrLg",
+      "x": 0,
+      "y": 0,
+      "name": "1 - Projects View",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "#F1F5F9",
+      "children": [
+        {
+          "id": "LzHuf",
+          "type": "ref",
+          "ref": "iz1dk",
+          "width": 220,
+          "height": "fill_container",
+          "name": "sb1"
+        },
+        {
+          "type": "frame",
+          "id": "pfIza",
+          "name": "main1",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "F3PBt",
+              "name": "header1",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#E2E8F0"
+              },
+              "padding": [
+                20,
+                32
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "DxhyU",
+                  "name": "headerTitle1",
+                  "fill": "#0F172A",
+                  "content": "Projects",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "frame",
+                  "id": "duscS",
+                  "name": "addProjBtn",
+                  "height": 40,
+                  "fill": "#10B981",
+                  "cornerRadius": 8,
+                  "gap": 8,
+                  "padding": [
+                    0,
+                    20,
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "QyAfg",
+                      "name": "addProjIcon",
+                      "width": 16,
+                      "height": 16,
+                      "iconFontName": "plus",
+                      "iconFontFamily": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Z9j1EC",
+                      "name": "addProjLabel",
+                      "fill": "#FFFFFF",
+                      "content": "Add Project",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Bvd6t",
+              "name": "listArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                28,
+                32
+              ],
+              "children": [
+                {
+                  "id": "ijluX",
+                  "type": "ref",
+                  "ref": "mfXvk",
+                  "width": "fill_container",
+                  "name": "row1",
+                  "descendants": {
+                    "HR6zP": {
+                      "content": "SOE"
+                    }
+                  }
+                },
+                {
+                  "id": "DFiDz",
+                  "type": "ref",
+                  "ref": "mfXvk",
+                  "width": "fill_container",
+                  "name": "row2",
+                  "descendants": {
+                    "HR6zP": {
+                      "content": "SUL"
+                    }
+                  }
+                },
+                {
+                  "id": "b4VWhb",
+                  "type": "ref",
+                  "ref": "mfXvk",
+                  "width": "fill_container",
+                  "name": "row3",
+                  "descendants": {
+                    "HR6zP": {
+                      "content": "ACME Portal"
+                    }
+                  }
+                },
+                {
+                  "id": "TmbKN",
+                  "type": "ref",
+                  "ref": "mfXvk",
+                  "width": "fill_container",
+                  "name": "row4",
+                  "descendants": {
+                    "HR6zP": {
+                      "content": "Internal Tools"
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "K9m6dg",
+      "x": 1360,
+      "y": 0,
+      "name": "2 - Project Notes",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "#F1F5F9",
+      "children": [
+        {
+          "id": "Ndq2d",
+          "type": "ref",
+          "ref": "iz1dk",
+          "width": 220,
+          "height": "fill_container",
+          "name": "sb2"
+        },
+        {
+          "type": "frame",
+          "id": "V68fM",
+          "name": "main2",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "W2JdA",
+              "name": "header2",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#E2E8F0"
+              },
+              "layout": "vertical",
+              "gap": 4,
+              "padding": [
+                20,
+                32,
+                16,
+                32
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JwwF2",
+                  "name": "backLink",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "gvmoW",
+                      "name": "backIcon",
+                      "width": 14,
+                      "height": 14,
+                      "iconFontName": "arrow-left",
+                      "iconFontFamily": "lucide",
+                      "fill": "#10B981"
+                    },
+                    {
+                      "type": "text",
+                      "id": "f2oKC",
+                      "name": "backLabel",
+                      "fill": "#10B981",
+                      "content": "Projects",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "500"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Y3jPR",
+                  "name": "pageTitle2",
+                  "fill": "#0F172A",
+                  "content": "SOE — Notes",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qqorK",
+              "name": "notesArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                28,
+                32
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "GXtYB",
+                  "name": "note1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0F172210",
+                    "offset": {
+                      "x": 0,
+                      "y": 1
+                    },
+                    "blur": 3
+                  },
+                  "gap": 20,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "BDjk6",
+                      "name": "note1ts",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "2026-04-29  14:32",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "g8UPMu",
+                      "name": "note1txt",
+                      "fill": "#0F172A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Call with Marcus — he wants the dashboard filters done by Friday, needs export to CSV as well.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VMe1E",
+                  "name": "note2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0F172210",
+                    "offset": {
+                      "x": 0,
+                      "y": 1
+                    },
+                    "blur": 3
+                  },
+                  "gap": 20,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "w1Ozy",
+                      "name": "note2ts",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "2026-04-28  09:15",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "zJ53R",
+                      "name": "note2txt",
+                      "fill": "#0F172A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Staging deploy is blocked — waiting on infra team to provision the new DB instance.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rEVBW",
+                  "name": "note3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0F172210",
+                    "offset": {
+                      "x": 0,
+                      "y": 1
+                    },
+                    "blur": 3
+                  },
+                  "gap": 20,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NHVHM",
+                      "name": "note3ts",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "2026-04-27  16:48",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VlP9r",
+                      "name": "note3txt",
+                      "fill": "#0F172A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Reviewed PR #214 with Sarah. Needs test coverage for the auth middleware before merge.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mduSd",
+                  "name": "note4",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0F172210",
+                    "offset": {
+                      "x": 0,
+                      "y": 1
+                    },
+                    "blur": 3
+                  },
+                  "gap": 20,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "J6fPJU",
+                      "name": "note4ts",
+                      "fill": "#64748B",
+                      "textGrowth": "fixed-width",
+                      "width": 160,
+                      "content": "2026-04-25  11:02",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "hRnSl",
+                      "name": "note4txt",
+                      "fill": "#0F172A",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Kick-off meeting done. Team agreed on two-week sprints. First sprint planning next Monday.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "f2MWbi",
+      "x": 2720,
+      "y": 0,
+      "name": "3 - Journal View",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "#F1F5F9",
+      "children": [
+        {
+          "id": "XL0Ug",
+          "type": "ref",
+          "ref": "iz1dk",
+          "width": 220,
+          "height": "fill_container",
+          "name": "sb3",
+          "descendants": {
+            "VUe3y": {
+              "fill": "transparent"
+            },
+            "m5f7dN": {
+              "fill": "#64748B"
+            },
+            "C8qLuW": {
+              "fill": "#64748B"
+            },
+            "LRozm": {
+              "fill": "#10B981"
+            },
+            "Z0my8": {
+              "fill": "#FFFFFF"
+            },
+            "J1Q3d": {
+              "fill": "#FFFFFF"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "p7z3c",
+          "name": "main3",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "gJ0hh",
+              "name": "header3",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#E2E8F0"
+              },
+              "padding": [
+                20,
+                32
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "PaG77",
+                  "name": "headerTitle3",
+                  "fill": "#0F172A",
+                  "content": "Journal",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "K3j6xC",
+              "name": "journalArea",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                28,
+                32
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "YREXk",
+                  "name": "je1",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0F172210",
+                    "offset": {
+                      "x": 0,
+                      "y": 1
+                    },
+                    "blur": 3
+                  },
+                  "gap": 16,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "iBWJj",
+                      "name": "je1badge",
+                      "fill": "#DCFCE7",
+                      "cornerRadius": 20,
+                      "padding": [
+                        3,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "IypwR",
+                          "name": "je1badgeTxt",
+                          "fill": "#15803D",
+                          "content": "SOE",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xfcPd",
+                      "name": "je1right",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "KmD3j",
+                          "name": "je1ts",
+                          "fill": "#64748B",
+                          "content": "2026-04-29  14:32",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "nEeog",
+                          "name": "je1txt",
+                          "fill": "#0F172A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Call with Marcus — he wants the dashboard filters done by Friday, needs export to CSV.",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PdBwK",
+                  "name": "je2",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0F172210",
+                    "offset": {
+                      "x": 0,
+                      "y": 1
+                    },
+                    "blur": 3
+                  },
+                  "gap": 16,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "zQhUp",
+                      "name": "je2badge",
+                      "fill": "#DBEAFE",
+                      "cornerRadius": 20,
+                      "padding": [
+                        3,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "C3O9dG",
+                          "name": "je2badgeTxt",
+                          "fill": "#1D4ED8",
+                          "content": "SUL",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "a0ptv",
+                      "name": "je2right",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "E5iYvc",
+                          "name": "je2ts",
+                          "fill": "#64748B",
+                          "content": "2026-04-29  11:05",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "aIvFd",
+                          "name": "je2txt",
+                          "fill": "#0F172A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Design review at 2pm — bring updated wireframes for the onboarding flow.",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "staur",
+                  "name": "je3",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF",
+                  "cornerRadius": 10,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#0F172210",
+                    "offset": {
+                      "x": 0,
+                      "y": 1
+                    },
+                    "blur": 3
+                  },
+                  "gap": 16,
+                  "padding": [
+                    14,
+                    20
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "zYeeo",
+                      "name": "je3badge",
+                      "fill": "#FEF9C3",
+                      "cornerRadius": 20,
+                      "padding": [
+                        3,
+                        10
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SsZD1",
+                          "name": "je3badgeTxt",
+                          "fill": "#A16207",
+                          "content": "ACME Portal",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "h44yGy",
+                      "name": "je3right",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "gap": 4,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ngbuc",
+                          "name": "je3ts",
+                          "fill": "#64748B",
+                          "content": "2026-04-28  16:20",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "wt8v5",
+                          "name": "je3txt",
+                          "fill": "#0F172A",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "Client asked to push go-live to May 15. Need to notify the PM and update the project timeline.",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "NNuMi",
+      "x": 0,
+      "y": 880,
+      "name": "4 - Add Project Modal",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "#F1F5F9",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "Jhv4O",
+          "x": 0,
+          "y": 0,
+          "name": "s4bg",
+          "width": 1280,
+          "height": 800,
+          "fill": "#F1F5F9",
+          "children": [
+            {
+              "id": "I7hXi",
+              "type": "ref",
+              "ref": "iz1dk",
+              "width": 220,
+              "height": "fill_container",
+              "name": "sb4"
+            },
+            {
+              "type": "frame",
+              "id": "vA8Ce",
+              "name": "s4main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#0F172240"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "kGEqY",
+          "layoutPosition": "absolute",
+          "x": 400,
+          "y": 160,
+          "name": "modal",
+          "clip": true,
+          "width": 480,
+          "fill": "#FFFFFF",
+          "cornerRadius": 16,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#0F172230",
+            "offset": {
+              "x": 0,
+              "y": 8
+            },
+            "blur": 32
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "oefIZ",
+              "name": "modalHeader",
+              "width": "fill_container",
+              "padding": [
+                20,
+                24
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ekS6r",
+                  "name": "modalTitle",
+                  "fill": "#0F172A",
+                  "content": "Add Project",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "d1PmE",
+                  "name": "modalClose",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "x",
+                  "iconFontFamily": "lucide",
+                  "fill": "#94A3B8"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "RtNPV",
+              "name": "modalDivider",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "#E2E8F0"
+            },
+            {
+              "type": "frame",
+              "id": "k9g8C",
+              "name": "modalBody",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "FnH6t",
+                  "name": "field1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ZuVne",
+                      "name": "field1Label",
+                      "fill": "#374151",
+                      "content": "Project Name",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dOvrw",
+                      "name": "field1Input",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "#F8FAFC",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#E2E8F0"
+                      },
+                      "padding": [
+                        0,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "JyyNM",
+                          "name": "field1Placeholder",
+                          "fill": "#94A3B8",
+                          "content": "e.g. SOE",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "cZFML",
+                  "name": "field2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "prDKs",
+                      "name": "field2Label",
+                      "fill": "#374151",
+                      "content": "Vault-relative File Path",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tovgw",
+                      "name": "field2Input",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "#F8FAFC",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#E2E8F0"
+                      },
+                      "padding": [
+                        0,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "s9ppA",
+                          "name": "field2Placeholder",
+                          "fill": "#94A3B8",
+                          "content": "Projects/SOE.md",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "Djwbq",
+                      "name": "field2Hint",
+                      "fill": "#94A3B8",
+                      "content": "Relative to your vault root. Must end in .md",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "IC69x",
+              "name": "modalFooter",
+              "width": "fill_container",
+              "gap": 12,
+              "padding": [
+                16,
+                24,
+                20,
+                24
+              ],
+              "justifyContent": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tsmFg",
+                  "name": "cancelBtn",
+                  "height": 40,
+                  "fill": "#F1F5F9",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#E2E8F0"
+                  },
+                  "padding": [
+                    0,
+                    20
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Xljso",
+                      "name": "cancelLabel",
+                      "fill": "#475569",
+                      "content": "Cancel",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "iBcgz",
+                  "name": "saveBtn",
+                  "height": 40,
+                  "fill": "#10B981",
+                  "cornerRadius": 8,
+                  "padding": [
+                    0,
+                    24
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "j3PgFL",
+                      "name": "saveLabel",
+                      "fill": "#FFFFFF",
+                      "content": "Save Project",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "ilfZO",
+      "x": 1360,
+      "y": 880,
+      "name": "5 - Edit Project Modal",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "#F1F5F9",
+      "layout": "none",
+      "children": [
+        {
+          "type": "frame",
+          "id": "UQmda",
+          "x": 0,
+          "y": 0,
+          "name": "s5bg",
+          "width": 1280,
+          "height": 800,
+          "fill": "#F1F5F9",
+          "children": [
+            {
+              "id": "z21aOZ",
+              "type": "ref",
+              "ref": "iz1dk",
+              "width": 220,
+              "height": "fill_container",
+              "name": "sb5"
+            },
+            {
+              "type": "frame",
+              "id": "PVUaQ",
+              "name": "s5main",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#0F172240"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "t88Fx",
+          "layoutPosition": "absolute",
+          "x": 400,
+          "y": 130,
+          "name": "emodal",
+          "clip": true,
+          "width": 480,
+          "fill": "#FFFFFF",
+          "cornerRadius": 16,
+          "effect": {
+            "type": "shadow",
+            "shadowType": "outer",
+            "color": "#0F172230",
+            "offset": {
+              "x": 0,
+              "y": 8
+            },
+            "blur": 32
+          },
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "AE0KI",
+              "name": "eHeader",
+              "width": "fill_container",
+              "padding": [
+                20,
+                24
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "UQUtk",
+                  "name": "eTitle",
+                  "fill": "#0F172A",
+                  "content": "Edit Project",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "b7FmoJ",
+                  "name": "eClose",
+                  "width": 20,
+                  "height": 20,
+                  "iconFontName": "x",
+                  "iconFontFamily": "lucide",
+                  "fill": "#94A3B8"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kuaqx",
+              "name": "eDivider",
+              "width": "fill_container",
+              "height": 1,
+              "fill": "#E2E8F0"
+            },
+            {
+              "type": "frame",
+              "id": "e5Oym",
+              "name": "eBody",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 20,
+              "padding": [
+                24,
+                24,
+                16,
+                24
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "jztQ1",
+                  "name": "ef1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "eNBF2",
+                      "name": "ef1Label",
+                      "fill": "#374151",
+                      "content": "Project Name",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "N0kY0g",
+                      "name": "ef1Input",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#10B981"
+                      },
+                      "padding": [
+                        0,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "qbBM8",
+                          "name": "ef1Value",
+                          "fill": "#0F172A",
+                          "content": "SOE",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SbrRs",
+                  "name": "ef2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CDq4e",
+                      "name": "ef2Label",
+                      "fill": "#374151",
+                      "content": "Vault-relative File Path",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "X44T1",
+                      "name": "ef2Input",
+                      "width": "fill_container",
+                      "height": 44,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#E2E8F0"
+                      },
+                      "padding": [
+                        0,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "pfIbf",
+                          "name": "ef2Value",
+                          "fill": "#0F172A",
+                          "content": "Projects/SOE.md",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "mCS8K",
+                  "name": "eDivider2",
+                  "width": "fill_container",
+                  "height": 1,
+                  "fill": "#E2E8F0"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "S2UNha",
+              "name": "eFooter",
+              "width": "fill_container",
+              "gap": 8,
+              "padding": [
+                16,
+                24,
+                20,
+                24
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "Rtz1U",
+                  "name": "eDeleteBtn",
+                  "height": 40,
+                  "fill": "#FEF2F2",
+                  "cornerRadius": 8,
+                  "gap": 6,
+                  "padding": [
+                    0,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon_font",
+                      "id": "ix1SP",
+                      "name": "eDeleteIcon",
+                      "width": 15,
+                      "height": 15,
+                      "iconFontName": "trash-2",
+                      "iconFontFamily": "lucide",
+                      "fill": "#EF4444"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kyNJX",
+                      "name": "eDeleteLabel",
+                      "fill": "#EF4444",
+                      "content": "Delete Project",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DgPNf",
+                  "name": "eFooterRight",
+                  "gap": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "GJQSO",
+                      "name": "eCancelBtn",
+                      "height": 40,
+                      "fill": "#F1F5F9",
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#E2E8F0"
+                      },
+                      "padding": [
+                        0,
+                        20
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "R1HsN",
+                          "name": "eCancelLabel",
+                          "fill": "#475569",
+                          "content": "Cancel",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "gfBu6",
+                      "name": "eSaveBtn",
+                      "height": 40,
+                      "fill": "#10B981",
+                      "cornerRadius": 8,
+                      "padding": [
+                        0,
+                        24
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Nnyu7",
+                          "name": "eSaveLabel",
+                          "fill": "#FFFFFF",
+                          "content": "Save Changes",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "VO85S",
+              "name": "eConfirmBanner",
+              "width": "fill_container",
+              "fill": "#FEF2F2",
+              "gap": 12,
+              "padding": [
+                14,
+                24
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "bMIGl",
+                  "name": "eConfirmText",
+                  "fill": "#991B1B",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Delete SOE? This will not delete the Obsidian file.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "UwL7I",
+                  "name": "eConfirmBtns",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "vDq26",
+                      "name": "eConfirmYes",
+                      "height": 32,
+                      "fill": "#EF4444",
+                      "cornerRadius": 6,
+                      "padding": [
+                        0,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VlExM",
+                          "name": "eConfirmYesLabel",
+                          "fill": "#FFFFFF",
+                          "content": "Confirm",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Whrml",
+                      "name": "eConfirmNo",
+                      "height": 32,
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 6,
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#FCA5A5"
+                      },
+                      "padding": [
+                        0,
+                        14
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "GVbGS",
+                          "name": "eConfirmNoLabel",
+                          "fill": "#EF4444",
+                          "content": "Cancel",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "BQdO4",
+      "x": 2720,
+      "y": 880,
+      "name": "6 - Settings View",
+      "clip": true,
+      "width": 1280,
+      "height": 800,
+      "fill": "#F1F5F9",
+      "children": [
+        {
+          "id": "wemt0",
+          "type": "ref",
+          "ref": "iz1dk",
+          "width": 220,
+          "height": "fill_container",
+          "name": "sb6",
+          "descendants": {
+            "VUe3y": {
+              "fill": "transparent"
+            },
+            "m5f7dN": {
+              "fill": "#64748B"
+            },
+            "C8qLuW": {
+              "fill": "#64748B"
+            },
+            "r2E77E": {
+              "fill": "#10B981"
+            },
+            "uA2Hk": {
+              "fill": "#FFFFFF"
+            },
+            "SAEM0": {
+              "fill": "#FFFFFF"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "n9xln",
+          "name": "main6",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "odikH",
+              "name": "header6",
+              "width": "fill_container",
+              "fill": "#FFFFFF",
+              "stroke": {
+                "align": "outside",
+                "thickness": {
+                  "bottom": 1
+                },
+                "fill": "#E2E8F0"
+              },
+              "padding": [
+                20,
+                32
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "oEsOw",
+                  "name": "headerTitle6",
+                  "fill": "#0F172A",
+                  "content": "Settings",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "oLEsE",
+              "name": "settingsBody",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 32,
+              "padding": [
+                36,
+                40
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zsqiP",
+                  "name": "section1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "FVi2j",
+                      "name": "section1Title",
+                      "fill": "#0F172A",
+                      "content": "Note Capture",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YgfbU",
+                      "name": "section1Divider",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#E2E8F0"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mKR0M",
+                      "name": "toggleRow",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0F172210",
+                        "offset": {
+                          "x": 0,
+                          "y": 1
+                        },
+                        "blur": 4
+                      },
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "J3BGQ7",
+                          "name": "toggleLeft",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gY94I",
+                              "name": "toggleLabel",
+                              "fill": "#0F172A",
+                              "content": "Press Enter to add a note",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "I6eObx",
+                              "name": "toggleDesc",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Submits the note when you press Enter in the quick-note field",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "VnpOn",
+                          "name": "toggleSwitch",
+                          "width": 48,
+                          "height": 28,
+                          "fill": "#10B981",
+                          "cornerRadius": 14,
+                          "padding": 3,
+                          "justifyContent": "end",
+                          "children": [
+                            {
+                              "type": "ellipse",
+                              "id": "scT6p",
+                              "name": "toggleThumb",
+                              "fill": "#FFFFFF",
+                              "width": 22,
+                              "height": 22
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "x8DpK",
+                  "name": "section2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "c1WJk7",
+                      "name": "section2Title",
+                      "fill": "#0F172A",
+                      "content": "Vault",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RDzwh",
+                      "name": "section2Divider",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "#E2E8F0"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "s4CD1",
+                      "name": "vaultRow",
+                      "width": "fill_container",
+                      "fill": "#FFFFFF",
+                      "cornerRadius": 12,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#0F172210",
+                        "offset": {
+                          "x": 0,
+                          "y": 1
+                        },
+                        "blur": 4
+                      },
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "c1HNW",
+                          "name": "vaultLeft",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 3,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gnt8i",
+                              "name": "vaultLabel",
+                              "fill": "#0F172A",
+                              "content": "Vault Root Path",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "text",
+                              "id": "VuAGF",
+                              "name": "vaultDesc",
+                              "fill": "#64748B",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Set via OBSIDIAN_VAULT environment variable at container startup",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "normal"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "ytdOk",
+                          "name": "vaultValue",
+                          "height": 36,
+                          "fill": "#F1F5F9",
+                          "cornerRadius": 8,
+                          "padding": [
+                            0,
+                            14
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ZwIfA",
+                              "name": "vaultValueText",
+                              "fill": "#475569",
+                              "content": "/home/ian/vault",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "iz1dk",
+      "x": 4100,
+      "y": 0,
+      "name": "component/Sidebar",
+      "reusable": true,
+      "width": 220,
+      "height": 800,
+      "fill": "#1E293B",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "DjOQL",
+          "name": "logoArea",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 4,
+          "padding": [
+            28,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "uEBsR",
+              "name": "logoRow",
+              "width": "fill_container",
+              "gap": 10,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "ellipse",
+                  "id": "OqIyJ",
+                  "name": "logoDot",
+                  "fill": "#10B981",
+                  "width": 10,
+                  "height": 10
+                },
+                {
+                  "type": "text",
+                  "id": "T2cOj",
+                  "name": "logoTitle",
+                  "fill": "#F8FAFC",
+                  "content": "Evergreen",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "700"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "t8h5k",
+              "name": "logoSub",
+              "fill": "#64748B",
+              "content": "FASTBALL",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "600",
+              "letterSpacing": 2
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Wkwc0",
+          "name": "navArea",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 2,
+          "padding": [
+            8,
+            12,
+            12,
+            12
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "VUe3y",
+              "name": "navProjects",
+              "width": "fill_container",
+              "height": 40,
+              "fill": "#10B981",
+              "cornerRadius": 8,
+              "gap": 10,
+              "padding": [
+                0,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "m5f7dN",
+                  "name": "navProjectsIcon",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "layout-grid",
+                  "iconFontFamily": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "C8qLuW",
+                  "name": "navProjectsLabel",
+                  "fill": "#FFFFFF",
+                  "content": "Projects",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "LRozm",
+              "name": "navJournal",
+              "width": "fill_container",
+              "height": 40,
+              "cornerRadius": 8,
+              "gap": 10,
+              "padding": [
+                0,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Z0my8",
+                  "name": "navJournalIcon",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "book-open",
+                  "iconFontFamily": "lucide",
+                  "fill": "#64748B"
+                },
+                {
+                  "type": "text",
+                  "id": "J1Q3d",
+                  "name": "navJournalLabel",
+                  "fill": "#64748B",
+                  "content": "Journal",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "r2E77E",
+              "name": "navSettings",
+              "width": "fill_container",
+              "height": 40,
+              "cornerRadius": 8,
+              "gap": 10,
+              "padding": [
+                0,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "uA2Hk",
+                  "name": "navSettingsIcon",
+                  "width": 18,
+                  "height": 18,
+                  "iconFontName": "settings",
+                  "iconFontFamily": "lucide",
+                  "fill": "#64748B"
+                },
+                {
+                  "type": "text",
+                  "id": "SAEM0",
+                  "name": "navSettingsLabel",
+                  "fill": "#64748B",
+                  "content": "Settings",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "mfXvk",
+      "x": 4100,
+      "y": 900,
+      "name": "component/ProjectRow",
+      "reusable": true,
+      "width": 960,
+      "fill": "#FFFFFF",
+      "cornerRadius": 12,
+      "effect": {
+        "type": "shadow",
+        "shadowType": "outer",
+        "color": "#0F172214",
+        "offset": {
+          "x": 0,
+          "y": 1
+        },
+        "blur": 4
+      },
+      "gap": 12,
+      "padding": [
+        16,
+        20
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "icon_font",
+          "id": "d89zh",
+          "name": "rowDragHandle",
+          "width": 18,
+          "height": 18,
+          "iconFontName": "grip-vertical",
+          "iconFontFamily": "lucide",
+          "fill": "#CBD5E1"
+        },
+        {
+          "type": "text",
+          "id": "HR6zP",
+          "name": "rowName",
+          "fill": "#0F172A",
+          "textGrowth": "fixed-width",
+          "width": 120,
+          "content": "Project Name",
+          "fontFamily": "Inter",
+          "fontSize": 14,
+          "fontWeight": "700"
+        },
+        {
+          "type": "frame",
+          "id": "lrwK5",
+          "name": "rowInput",
+          "width": "fill_container",
+          "height": 40,
+          "fill": "#F8FAFC",
+          "cornerRadius": 8,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#E2E8F0"
+          },
+          "padding": [
+            0,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "lCkUq",
+              "name": "rowInputPlaceholder",
+              "fill": "#94A3B8",
+              "content": "Quick note…",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k3YwN",
+          "name": "rowAddBtn",
+          "height": 40,
+          "fill": "#10B981",
+          "cornerRadius": 8,
+          "padding": [
+            0,
+            18
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "wcVaM",
+              "name": "rowAddLabel",
+              "fill": "#FFFFFF",
+              "content": "ADD",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "jryNf",
+          "name": "rowListBtn",
+          "height": 40,
+          "fill": "#F1F5F9",
+          "cornerRadius": 8,
+          "stroke": {
+            "align": "inside",
+            "thickness": 1,
+            "fill": "#E2E8F0"
+          },
+          "padding": [
+            0,
+            18
+          ],
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "YnYZI",
+              "name": "rowListLabel",
+              "fill": "#475569",
+              "content": "LIST",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "icon_font",
+          "id": "S6jgEK",
+          "name": "rowEditBtn",
+          "width": 18,
+          "height": 18,
+          "iconFontName": "pencil",
+          "iconFontFamily": "lucide",
+          "fill": "#94A3B8"
+        }
+      ]
+    }
+  ]
+}

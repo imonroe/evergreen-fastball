@@ -37,6 +37,17 @@ Single user (the developer/operator running the local container).
 
 ---
 
+## Tech Stack
+
+| Layer | Choice |
+|-------|--------|
+| Backend | Node.js with Express |
+| Frontend | Vue.js |
+| App state | JSON file (project registry, ordering, preferences) |
+| Note storage | Plain markdown files in the Obsidian vault |
+
+---
+
 ## Architecture
 
 | Component | Details |
@@ -46,7 +57,8 @@ Single user (the developer/operator running the local container).
 | Storage backend | Obsidian vault directory, mounted as a volume into the container |
 | File paths | Relative to the configured vault root (e.g. `Projects/SOE.md`) |
 | Data format | Plain markdown files (one file per project) |
-| Note persistence | Append-only — new notes are appended to the project's markdown file with a timestamp |
+| Note persistence | Append-only — notes are written under a `## Notes` heading in each project file |
+| App state | `data.json` file (persists project list, order, and preferences) |
 
 ---
 
@@ -119,20 +131,25 @@ Lists all notes from all projects combined, newest first.
 
 ## Note Storage Format
 
-When a note is added, it is appended to the bottom of the project's Obsidian markdown file in this format:
+Each project's Obsidian markdown file contains a `## Notes` section. The app only reads from and writes to content within that section; any other content in the file (headings, existing text, etc.) is left untouched.
+
+When a note is added, a new line is appended inside the `## Notes` section:
 
 ```
 - YYYY-MM-DD HH:MM — <note text>
 ```
 
-This keeps the file human-readable in Obsidian and parseable by the app.
+If the file does not yet contain a `## Notes` heading, the app appends one before writing the first note. This keeps the file human-readable in Obsidian and ensures the app only ever touches its own content.
 
 ---
 
 ## Configuration
 
-- Obsidian vault root path is set via an environment variable or config file at container startup
-- Port (default 6002) is configurable via environment variable
+| Variable | Required | Default | Description |
+|----------|----------|---------|-------------|
+| `OBSIDIAN_VAULT` | Yes | — | Absolute path to the Obsidian vault root inside the container (mount your vault here) |
+| `PORT` | No | `6002` | Port the Express server listens on |
+| `DATA_FILE` | No | `./data.json` | Path to the JSON file storing the project registry and preferences |
 
 ## Preferences
 
