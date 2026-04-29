@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/ian/code/evergreen-fastball/logs/.94315ecd5815e44ea316a4cce22535826c145fda-audit.json",
+    "files": [
+        {
+            "date": 1777479435149,
+            "name": "/home/ian/code/evergreen-fastball/logs/mcp-puppeteer-2026-04-29.log",
+            "hash": "e3fbe124b0abab567a292033923e0bbcf58b1d2738314c045357aa19f74714a8"
+        }
+    ],
+    "hashType": "sha256"
+}
