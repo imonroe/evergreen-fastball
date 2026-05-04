@@ -14,10 +14,12 @@ router.get('/vault-path', (_req, res) => {
 
 router.put('/', (req, res) => {
   const data = read();
-  const { enterToAdd, timezone, dailyNoteLinks } = req.body;
+  const { enterToAdd, timezone, dailyNoteLinks, dailyNoteEnabled, dailyNotePattern } = req.body;
   if (typeof enterToAdd === 'boolean') data.preferences.enterToAdd = enterToAdd;
   if (typeof timezone === 'string') data.preferences.timezone = timezone.trim();
   if (typeof dailyNoteLinks === 'boolean') data.preferences.dailyNoteLinks = dailyNoteLinks;
+  if (typeof dailyNoteEnabled === 'boolean') data.preferences.dailyNoteEnabled = dailyNoteEnabled;
+  if (typeof dailyNotePattern === 'string') data.preferences.dailyNotePattern = dailyNotePattern.trim();
   write(data);
   res.json(data.preferences);
 });

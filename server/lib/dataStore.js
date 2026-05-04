@@ -20,7 +20,7 @@ const DEFAULT_DATA = {
   projects: [],
   clusters: [],
   quickLinks: [],
-  preferences: { enterToAdd: true, timezone: '', dailyNoteLinks: false },
+  preferences: { enterToAdd: true, timezone: '', dailyNoteLinks: false, dailyNoteEnabled: false, dailyNotePattern: 'Daily Notes/YYYY/MM/YYYY-MM-DD' },
 };
 
 function read() {

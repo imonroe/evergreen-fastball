@@ -7,6 +7,7 @@ const notesRouter = require('./routes/notes');
 const preferencesRouter = require('./routes/preferences');
 const quickLinksRouter = require('./routes/quickLinks');
 const clustersRouter = require('./routes/clusters');
+const dailyNoteRouter = require('./routes/dailyNote');
 
 const app = express();
 const PORT = process.env.PORT || 6002;
@@ -18,6 +19,7 @@ app.use('/api/notes', notesRouter);
 app.use('/api/preferences', preferencesRouter);
 app.use('/api/quick-links', quickLinksRouter);
 app.use('/api/clusters', clustersRouter);
+app.use('/api/daily-note', dailyNoteRouter);
 
 // Serve built Vue app in production
 const CLIENT_DIST = path.join(__dirname, '../client/dist');

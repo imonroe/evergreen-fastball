@@ -18,6 +18,27 @@
     </header>
 
     <div class="page-body">
+      <!-- Pinned Daily Note row -->
+      <div v-if="prefs.dailyNoteEnabled" class="daily-note-row">
+        <div class="daily-note-left">
+          <svg class="daily-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <div class="daily-note-info">
+            <span class="daily-note-label">Daily Note</span>
+            <span class="daily-note-date">{{ todayDisplay }}</span>
+          </div>
+        </div>
+        <input
+          v-model="dailyNoteText"
+          class="daily-note-input"
+          type="text"
+          placeholder="Quick note…"
+          @keydown.enter="() => { if (prefs.enterToAdd) onDailyNoteAdd(); }"
+        />
+        <button class="btn-add-daily" @click="onDailyNoteAdd">ADD</button>
+      </div>
+
       <div v-if="projects.length === 0" class="empty-state">
         <p>No projects yet.</p>
         <button class="btn-primary" @click="showAdd = true">Add your first project</button>
@@ -125,19 +146,29 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import Draggable from 'vuedraggable';
 import ProjectRow from '../components/ProjectRow.vue';
 import AddProjectModal from '../components/AddProjectModal.vue';
 import EditProjectModal from '../components/EditProjectModal.vue';
 import ClusterModal from '../components/ClusterModal.vue';
-import { getProjects, addNote, reorderProjects, getPreferences, updateProject, getClusters, updateCluster } from '../api.js';
+import { getProjects, addNote, addDailyNote, reorderProjects, getPreferences, updateProject, getClusters, updateCluster } from '../api.js';
 import { useToast } from '../composables/useToast.js';
 
 const projects = ref([]);
 const clusters = ref([]);
 const groups = ref({});
-const prefs = ref({ enterToAdd: true, timezone: '' });
+const prefs = ref({ enterToAdd: true, timezone: '', dailyNoteEnabled: false });
+const dailyNoteText = ref('');
+
+const todayDisplay = computed(() => {
+  try {
+    const tz = prefs.value.timezone || undefined;
+    return new Intl.DateTimeFormat('en-CA', { timeZone: tz }).format(new Date());
+  } catch {
+    return new Intl.DateTimeFormat('en-CA').format(new Date());
+  }
+});
 const showAdd = ref(false);
 const showEdit = ref(false);
 const editTarget = ref(null);
@@ -169,6 +200,13 @@ onMounted(async () => {
   ]);
   rebuildGroups();
 });
+
+async function onDailyNoteAdd() {
+  if (!dailyNoteText.value.trim()) return;
+  await addDailyNote(dailyNoteText.value.trim());
+  dailyNoteText.value = '';
+  show('Note saved');
+}
 
 async function onAddNote(project, text) {
   await addNote(project.id, text);
@@ -420,4 +458,75 @@ function onClusterDeleted(id) {
   border-radius: 10px;
   text-align: center;
 }
+
+/* Daily Note pinned row */
+.daily-note-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px 20px;
+  box-shadow: 0 1px 4px #0F172214;
+  border-left: 3px solid #10B981;
+}
+
+.daily-note-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.daily-note-icon {
+  width: 20px;
+  height: 20px;
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+.daily-note-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 100px;
+}
+
+.daily-note-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.daily-note-date {
+  font-size: 12px;
+  color: #64748B;
+  font-variant-numeric: tabular-nums;
+}
+
+.daily-note-input {
+  flex: 1;
+  height: 40px;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  background: #F8FAFC;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #0F172A;
+}
+
+.daily-note-input:focus { border-color: #10B981; background: #fff; outline: none; }
+
+.btn-add-daily {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 8px;
+  background: #10B981;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.btn-add-daily:hover { background: #059669; }
 </style>

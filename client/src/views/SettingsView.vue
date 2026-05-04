@@ -70,6 +70,41 @@
       </section>
 
       <section class="settings-section">
+        <h2>Daily Note</h2>
+        <div class="divider" />
+
+        <div class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">Daily Note quick-note</span>
+            <span class="setting-desc">Pins a row at the top of Projects that appends a note to today's Daily Note file</span>
+          </div>
+          <button
+            class="toggle"
+            :class="{ on: prefs.dailyNoteEnabled }"
+            @click="toggle('dailyNoteEnabled')"
+            :aria-checked="prefs.dailyNoteEnabled"
+            role="switch"
+          >
+            <span class="toggle-thumb" />
+          </button>
+        </div>
+
+        <div v-if="prefs.dailyNoteEnabled" class="setting-row">
+          <div class="setting-info">
+            <span class="setting-label">File path pattern</span>
+            <span class="setting-desc">Use <code>YYYY</code>, <code>MM</code>, <code>DD</code> as date tokens. The <code>.md</code> extension is added automatically.</span>
+          </div>
+          <input
+            class="tz-input pattern-input"
+            type="text"
+            v-model="prefs.dailyNotePattern"
+            placeholder="Daily Notes/YYYY/MM/YYYY-MM-DD"
+            @change="save"
+          />
+        </div>
+      </section>
+
+      <section class="settings-section">
         <h2>Quick Links</h2>
         <div class="divider" />
 
@@ -134,7 +169,7 @@ import { useToast } from '../composables/useToast.js';
 import { useQuickLinks } from '../composables/useQuickLinks.js';
 import QuickLinkModal from '../components/QuickLinkModal.vue';
 
-const prefs = ref({ enterToAdd: true, timezone: '', dailyNoteLinks: false });
+const prefs = ref({ enterToAdd: true, timezone: '', dailyNoteLinks: false, dailyNoteEnabled: false, dailyNotePattern: '' });
 const vaultPath = ref('');
 const { show } = useToast();
 const { links, load: loadLinks } = useQuickLinks();
@@ -161,6 +196,8 @@ async function save() {
     enterToAdd: prefs.value.enterToAdd,
     timezone: prefs.value.timezone,
     dailyNoteLinks: prefs.value.dailyNoteLinks,
+    dailyNoteEnabled: prefs.value.dailyNoteEnabled,
+    dailyNotePattern: prefs.value.dailyNotePattern,
   });
   show('Settings saved');
 }
@@ -258,6 +295,8 @@ async function doDeleteLink(id) {
 }
 
 .tz-input:focus { border-color: #10B981; }
+
+.pattern-input { width: 300px; }
 
 .setting-desc code {
   font-family: monospace;
