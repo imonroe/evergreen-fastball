@@ -4,6 +4,25 @@ const { readNotes, addNote } = require('../lib/obsidian');
 
 const router = express.Router();
 
+// GET /api/notes/cluster/:clusterId — all notes from projects in a cluster, newest first
+router.get('/cluster/:clusterId', (req, res) => {
+  const data = read();
+  const clusterProjects = (data.projects || []).filter((p) => p.clusterId === req.params.clusterId);
+  try {
+    const all = [];
+    for (const project of clusterProjects) {
+      const notes = readNotes(project.filePath);
+      for (const note of notes) {
+        all.push({ ...note, projectId: project.id, projectName: project.name, projectColor: project.color });
+      }
+    }
+    all.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
+    res.json(all);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // GET /api/notes/:projectId — notes for one project, newest first
 router.get('/:projectId', (req, res) => {
   const { projects } = read();

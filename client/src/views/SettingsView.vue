@@ -68,23 +68,83 @@
           <span class="vault-value">{{ vaultPath || '(not set)' }}</span>
         </div>
       </section>
+
+      <section class="settings-section">
+        <h2>Quick Links</h2>
+        <div class="divider" />
+
+        <div
+          v-for="link in links"
+          :key="link.id"
+          class="setting-row ql-row"
+        >
+          <div class="setting-info">
+            <span class="setting-label">{{ link.label }}</span>
+            <span class="setting-desc ql-url">{{ link.url }}</span>
+          </div>
+
+          <div v-if="confirmDeleteId !== link.id" class="ql-actions">
+            <button class="icon-btn" :aria-label="'Edit ' + link.label" @click="editLinkTarget = link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            </button>
+            <button class="icon-btn icon-btn--danger" :aria-label="'Delete ' + link.label" @click="confirmDeleteId = link.id">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+            </button>
+          </div>
+
+          <div v-else class="ql-confirm-delete">
+            <span>Delete?</span>
+            <button class="btn-confirm" @click="doDeleteLink(link.id)">Confirm</button>
+            <button class="btn-cancel-sm" @click="confirmDeleteId = null">Cancel</button>
+          </div>
+        </div>
+
+        <div v-if="links.length === 0" class="ql-empty">
+          No quick links yet.
+        </div>
+
+        <button class="btn-add-link" @click="showAddLink = true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-add-icon">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Link
+        </button>
+      </section>
     </div>
+
+    <QuickLinkModal
+      v-if="showAddLink"
+      @save="onLinkSaved"
+      @cancel="showAddLink = false"
+    />
+    <QuickLinkModal
+      v-if="editLinkTarget"
+      :link="editLinkTarget"
+      @save="onLinkSaved"
+      @cancel="editLinkTarget = null"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { getPreferences, updatePreferences } from '../api.js';
+import { getPreferences, updatePreferences, deleteQuickLink } from '../api.js';
 import { useToast } from '../composables/useToast.js';
+import { useQuickLinks } from '../composables/useQuickLinks.js';
+import QuickLinkModal from '../components/QuickLinkModal.vue';
 
 const prefs = ref({ enterToAdd: true, timezone: '', dailyNoteLinks: false });
 const vaultPath = ref('');
 const { show } = useToast();
+const { links, load: loadLinks } = useQuickLinks();
+
+const showAddLink = ref(false);
+const editLinkTarget = ref(null);
+const confirmDeleteId = ref(null);
 
 onMounted(async () => {
   prefs.value = await getPreferences();
-  // read vault path from a dedicated endpoint or embed it at build time;
-  // here we expose it via a lightweight meta endpoint
   try {
     const res = await fetch('/api/preferences/vault-path');
     if (res.ok) vaultPath.value = (await res.json()).vaultPath;
@@ -103,6 +163,18 @@ async function save() {
     dailyNoteLinks: prefs.value.dailyNoteLinks,
   });
   show('Settings saved');
+}
+
+async function onLinkSaved() {
+  showAddLink.value = false;
+  editLinkTarget.value = null;
+  await loadLinks();
+}
+
+async function doDeleteLink(id) {
+  await deleteQuickLink(id);
+  confirmDeleteId.value = null;
+  await loadLinks();
 }
 </script>
 
@@ -208,4 +280,93 @@ async function save() {
   align-items: center;
   white-space: nowrap;
 }
+
+/* Quick Links section */
+.ql-row { align-items: center; }
+
+.ql-url {
+  word-break: break-all;
+}
+
+.ql-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: none;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-btn:hover { background: #F1F5F9; color: #475569; }
+
+.icon-btn--danger:hover { background: #FEF2F2; color: #EF4444; }
+
+.icon-btn svg { width: 15px; height: 15px; }
+
+.ql-confirm-delete {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #991B1B;
+  flex-shrink: 0;
+}
+
+.btn-confirm {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: #EF4444;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-cancel-sm {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: #fff;
+  border: 1px solid #FCA5A5;
+  color: #EF4444;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ql-empty {
+  font-size: 14px;
+  color: #94A3B8;
+  padding: 16px 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px #0F172210;
+}
+
+.btn-add-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 8px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #475569;
+  font-weight: 600;
+  font-size: 14px;
+  align-self: flex-start;
+}
+
+.btn-add-link:hover { background: #F1F5F9; }
+
+.btn-add-icon { width: 16px; height: 16px; }
 </style>

@@ -18,6 +18,8 @@ const BADGE_COLORS = [
 
 const DEFAULT_DATA = {
   projects: [],
+  clusters: [],
+  quickLinks: [],
   preferences: { enterToAdd: true, timezone: '', dailyNoteLinks: false },
 };
 

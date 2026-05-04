@@ -28,12 +28,35 @@
         </RouterLink>
       </li>
     </ul>
+
+    <div v-if="links.length > 0" class="ql-section">
+      <div class="ql-divider" />
+      <span class="ql-label">QUICK LINKS</span>
+      <a
+        v-for="link in links"
+        :key="link.id"
+        :href="link.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ql-item"
+      >
+        <svg class="ql-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        <span class="ql-label-text">{{ link.label }}</span>
+      </a>
+    </div>
   </nav>
 </template>
 
 <script setup>
 import { useRoute } from 'vue-router';
+import { useQuickLinks } from '../composables/useQuickLinks.js';
+
 const route = useRoute();
+const { links } = useQuickLinks();
 </script>
 
 <style scoped>
@@ -109,5 +132,56 @@ const route = useRoute();
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+}
+
+.ql-section {
+  padding: 0 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ql-divider {
+  height: 1px;
+  background: #334155;
+  margin-bottom: 10px;
+}
+
+.ql-label {
+  color: #64748B;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  padding: 0 12px;
+  margin-bottom: 4px;
+}
+
+.ql-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: #64748B;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  overflow: hidden;
+}
+
+.ql-item:hover { background: #334155; color: #CBD5E1; }
+
+.ql-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.ql-label-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 </style>

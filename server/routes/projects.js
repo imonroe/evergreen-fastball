@@ -50,6 +50,7 @@ router.put('/:id', (req, res) => {
 
   if (name) data.projects[idx].name = name.trim();
   if (filePath) data.projects[idx].filePath = filePath.trim();
+  if ('clusterId' in req.body) data.projects[idx].clusterId = req.body.clusterId ?? null;
   write(data);
   res.json(data.projects[idx]);
 });

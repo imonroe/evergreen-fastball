@@ -9,6 +9,11 @@
             "date": 1777479435149,
             "name": "/home/ian/code/evergreen-fastball/logs/mcp-puppeteer-2026-04-29.log",
             "hash": "e3fbe124b0abab567a292033923e0bbcf58b1d2738314c045357aa19f74714a8"
+        },
+        {
+            "date": 1777907115829,
+            "name": "/home/ian/code/evergreen-fastball/logs/mcp-puppeteer-2026-05-04.log",
+            "hash": "56437a73d0091b74046b0228249e1e6a78ef97e20e336530e700734fdc2772d2"
         }
     ],
     "hashType": "sha256"
