@@ -44,9 +44,12 @@
               </button>
               <span class="cluster-name">{{ cluster.name }}</span>
             </div>
-            <button class="cluster-edit-btn" @click="editClusterTarget = cluster" :aria-label="'Edit ' + cluster.name">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            </button>
+            <div class="cluster-header-right">
+              <button class="cluster-list-btn" @click="$router.push(`/clusters/${cluster.id}/notes`)" :aria-label="'List notes for ' + cluster.name">LIST</button>
+              <button class="cluster-edit-btn" @click="editClusterTarget = cluster" :aria-label="'Edit ' + cluster.name">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+            </div>
           </div>
 
           <Draggable
@@ -369,6 +372,26 @@ function onClusterDeleted(id) {
   font-weight: 700;
   color: #1E293B;
 }
+
+.cluster-header-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cluster-list-btn {
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 6px;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.cluster-list-btn:hover { background: #E2E8F0; }
 
 .cluster-edit-btn {
   background: none;

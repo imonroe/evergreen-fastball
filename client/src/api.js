@@ -15,6 +15,7 @@ export const deleteProject = (id) => request('DELETE', `/api/projects/${id}`);
 export const reorderProjects = (ids) => request('PUT', '/api/projects/reorder', { ids });
 
 export const getProjectNotes = (projectId) => request('GET', `/api/notes/${projectId}`);
+export const getClusterNotes = (clusterId) => request('GET', `/api/notes/cluster/${clusterId}`);
 export const addNote = (projectId, text) => request('POST', `/api/notes/${projectId}`, { text });
 export const getJournal = () => request('GET', '/api/notes');
 
