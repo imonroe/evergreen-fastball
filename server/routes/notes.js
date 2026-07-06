@@ -1,8 +1,14 @@
 const express = require('express');
 const { read } = require('../lib/dataStore');
-const { readNotes, addNote } = require('../lib/obsidian');
+const { readNotes, readDailyNotes, addNote } = require('../lib/obsidian');
 
 const router = express.Router();
+
+// Synthetic project identity for notes captured into the Obsidian daily note.
+const DAILY_NOTE_ID = '__daily-note__';
+const DAILY_NOTE_NAME = 'Daily Note';
+const DAILY_NOTE_COLOR = { bg: '#E2E8F0', text: '#475569' };
+const DEFAULT_DAILY_NOTE_PATTERN = 'Daily Notes/YYYY/MM/YYYY-MM-DD';
 
 // GET /api/notes/cluster/:clusterId — all notes from projects in a cluster, newest first
 router.get('/cluster/:clusterId', (req, res) => {
@@ -63,6 +69,14 @@ router.get('/', (_req, res) => {
         all.push({ ...note, projectId: project.id, projectName: project.name, projectColor: project.color });
       }
     }
+
+    // Include notes captured through the Daily Note quick-note form. These live
+    // in dated daily-note files rather than a project, so aggregate them here.
+    const pattern = data.preferences?.dailyNotePattern || DEFAULT_DAILY_NOTE_PATTERN;
+    for (const note of readDailyNotes(pattern)) {
+      all.push({ ...note, projectId: DAILY_NOTE_ID, projectName: DAILY_NOTE_NAME, projectColor: DAILY_NOTE_COLOR });
+    }
+
     all.sort((a, b) => b.timestamp.localeCompare(a.timestamp));
     res.json(all);
   } catch (err) {

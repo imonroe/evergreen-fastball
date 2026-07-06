@@ -40,13 +40,14 @@ All notes for a single project, newest first.
 ---
 
 ### 3. Journal View
-All notes from all projects combined, newest first.
+All notes from all projects combined — plus notes captured through the Daily Note quick-note form — newest first.
 
 **Elements:**
 - Left sidebar (same as Projects View; "Journal" active)
 - Page heading: "Journal"
 - Read-only list of notes, newest first
   - Each entry: project name badge (auto-assigned color), timestamp, note text
+  - Daily Note captures appear with a "Daily Note" badge
 
 **Empty state:** "No notes yet. Add a note from the Projects page."
 

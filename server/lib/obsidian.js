@@ -33,8 +33,7 @@ function formatParts(timezone) {
   return { date: `${get('year')}-${get('month')}-${get('day')}`, time: `${hour}:${get('minute')}` };
 }
 
-function readNotes(relPath) {
-  const p = absPath(relPath);
+function readNotesFromFile(p) {
   if (!fs.existsSync(p)) return [];
 
   const lines = fs.readFileSync(p, 'utf8').split('\n');
@@ -53,6 +52,66 @@ function readNotes(relPath) {
     if (m) notes.push({ timestamp: `${m[1]} ${m[2]}`, text: m[3] });
   }
   return notes.reverse();
+}
+
+function readNotes(relPath) {
+  return readNotesFromFile(absPath(relPath));
+}
+
+// Build a regex that matches a vault-relative daily-note path (e.g. matches
+// "Daily Notes/2026/07/2026-07-06.md" from pattern "Daily Notes/YYYY/MM/YYYY-MM-DD").
+function dailyNotePathRegex(pattern) {
+  const base = pattern.endsWith('.md') ? pattern.slice(0, -3) : pattern;
+  const escaped = base.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const withDates = escaped
+    .replace(/YYYY/g, '\\d{4}')
+    .replace(/MM/g, '\\d{2}')
+    .replace(/DD/g, '\\d{2}');
+  return new RegExp(`^${withDates}\\.md$`);
+}
+
+// The static leading directory of a pattern — everything before the first
+// segment that contains a date placeholder. Used to limit directory walking.
+function dailyNoteBaseDir(pattern) {
+  const staticSegs = [];
+  for (const seg of pattern.split('/')) {
+    if (/YYYY|MM|DD/.test(seg)) break;
+    staticSegs.push(seg);
+  }
+  return staticSegs.join('/');
+}
+
+function walkMarkdownFiles(dir, acc) {
+  let entries;
+  try {
+    entries = fs.readdirSync(dir, { withFileTypes: true });
+  } catch {
+    return; // directory missing or unreadable — nothing to collect
+  }
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walkMarkdownFiles(full, acc);
+    else if (entry.isFile() && entry.name.endsWith('.md')) acc.push(full);
+  }
+}
+
+// Read the ## Notes captures from every daily-note file matching `pattern`.
+function readDailyNotes(pattern) {
+  const root = vaultRoot();
+  const re = dailyNotePathRegex(pattern);
+  const baseRel = dailyNoteBaseDir(pattern);
+  const baseAbs = baseRel ? path.join(root, baseRel) : root;
+
+  const files = [];
+  walkMarkdownFiles(baseAbs, files);
+
+  const notes = [];
+  for (const abs of files) {
+    const rel = path.relative(root, abs).split(path.sep).join('/');
+    if (!re.test(rel)) continue;
+    for (const note of readNotesFromFile(abs)) notes.push(note);
+  }
+  return notes;
 }
 
 function addNote(relPath, text, timezone, dailyNoteLinks = false) {
@@ -89,4 +148,4 @@ function addNote(relPath, text, timezone, dailyNoteLinks = false) {
   fs.writeFileSync(p, lines.join('\n'), 'utf8');
 }
 
-module.exports = { readNotes, addNote };
+module.exports = { readNotes, readDailyNotes, addNote };
