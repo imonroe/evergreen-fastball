@@ -112,6 +112,7 @@ Lists all notes from all projects combined, newest first.
 
 **Behavior:**
 - Notes are aggregated across all project files and sorted by timestamp, newest first
+- Notes captured through the Daily Note quick-note form are also included, shown with a "Daily Note" badge
 - Project badge colors are assigned automatically from a fixed palette when a project is created; the same color is used consistently across the Journal view
 - Read-only
 
@@ -182,8 +183,8 @@ User-configurable settings stored in the app (not requiring a container restart)
 | F-02 | Each project row shall include a text input, ADD button, LIST button, and Edit button |
 | F-03 | Clicking ADD shall append the note with a timestamp to the project's Obsidian file |
 | F-04 | Clicking LIST shall show all notes for that project, newest first |
-| F-05 | The Journal view shall show all notes from all projects, newest first |
-| F-06 | Each journal entry shall display the source project name |
+| F-05 | The Journal view shall show all notes from all projects, plus notes captured via the Daily Note form, newest first |
+| F-06 | Each journal entry shall display the source project name (Daily Note captures shall display a "Daily Note" badge) |
 | F-07 | The app shall support adding new projects with a name and vault-relative Obsidian file path |
 | F-08 | The app shall support editing and deleting projects without modifying Obsidian files |
 | F-09 | The Obsidian vault root path shall be configurable without rebuilding the container |

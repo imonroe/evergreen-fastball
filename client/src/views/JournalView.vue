@@ -10,7 +10,7 @@
         No notes yet. Add a note from the Projects page.
       </div>
       <div v-else class="journal-list">
-        <div v-for="entry in entries" :key="entry.projectId + entry.timestamp" class="entry-card">
+        <div v-for="(entry, i) in entries" :key="entry.projectId + entry.timestamp + i" class="entry-card">
           <span
             class="project-badge"
             :style="{ background: entry.projectColor.bg, color: entry.projectColor.text }"
